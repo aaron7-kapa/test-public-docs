@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflows – Nimbus Docs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0b0f1a; color: #c9d1d9; line-height: 1.7; min-height: 100vh; }
+    header { border-bottom: 1px solid #1e2533; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(12px); position: sticky; top: 0; background: rgba(11, 15, 26, 0.85); z-index: 10; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: #fff; text-decoration: none; }
+    .logo svg { flex-shrink: 0; }
+    .logo span.badge { font-size: 11px; font-weight: 500; background: linear-gradient(135deg, #6366f1, #a78bfa); color: #fff; padding: 2px 8px; border-radius: 999px; margin-left: 4px; }
+    header nav a { color: #8b95a5; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 28px; transition: color 0.2s; }
+    header nav a:hover { color: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
+    h1 { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .subtitle { font-size: 15px; color: #6b7589; margin-bottom: 48px; }
+    h2 { font-size: 20px; font-weight: 600; color: #e2e8f0; margin-top: 40px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #1e2533; }
+    p { margin-bottom: 16px; font-size: 15px; }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #161b2e; padding: 2px 6px; border-radius: 4px; color: #a78bfa; }
+    pre { background: #111827; border: 1px solid #1e2533; border-radius: 10px; padding: 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 13px; line-height: 1.65; }
+    pre code { background: none; padding: 0; color: #c9d1d9; }
+    .keyword { color: #c084fc; }
+    .string { color: #34d399; }
+    .comment { color: #4b5568; font-style: italic; }
+    .func { color: #60a5fa; }
+    .callout { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(167,139,250,0.06)); border-left: 3px solid #6366f1; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0; font-size: 14px; }
+    .callout strong { color: #a78bfa; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    th { text-align: left; color: #8b95a5; font-weight: 500; padding: 10px 12px; border-bottom: 1px solid #1e2533; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #141a2a; }
+    td code { font-size: 12px; }
+    footer { text-align: center; padding: 32px; font-size: 13px; color: #3d4555; border-top: 1px solid #1e2533; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" fill="url(#g1)"/>
+      <path d="M7 13c1-3 3-5 5-5s4 2 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="12" cy="9" r="2" fill="#fff" opacity="0.6"/>
+      <defs><linearGradient id="g1" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+    </svg>
+    Nimbus <span class="badge">Docs</span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="api-reference.html">API</a>
+    <a href="triggers.html">Triggers</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <h1>Workflows</h1>
+  <p class="subtitle">Build automation pipelines with directed graphs of steps.</p>
+
+  <h2>Overview</h2>
+  <p>Workflows are the core building block of Nimbus. A workflow defines a sequence of <code>steps</code> that execute in response to a trigger event. Steps run in order and can branch, wait, or call external services.</p>
+
+  <h2>Creating a Workflow</h2>
+  <pre><code><span class="keyword">const</span> wf = <span class="keyword">await</span> nimbus.<span class="func">workflows.create</span>({
+  name: <span class="string">'Onboarding'</span>,
+  trigger: <span class="string">'user.signup'</span>,
+  steps: [
+    { action: <span class="string">'send_email'</span>, template: <span class="string">'welcome'</span> },
+    { action: <span class="string">'wait'</span>, duration: <span class="string">'1d'</span> },
+    { action: <span class="string">'send_email'</span>, template: <span class="string">'getting-started'</span> },
+  ],
+});</code></pre>
+
+  <h2>Listing Workflows</h2>
+  <pre><code><span class="keyword">const</span> list = <span class="keyword">await</span> nimbus.<span class="func">workflows.list</span>();
+<span class="comment">// Returns an array of workflow objects</span></code></pre>
+
+  <h2>Workflow Statuses</h2>
+  <table>
+    <thead>
+      <tr><th>Status</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>active</code></td><td>Running and listening for trigger events</td></tr>
+      <tr><td><code>paused</code></td><td>Temporarily stopped; no events processed</td></tr>
+      <tr><td><code>draft</code></td><td>Not yet activated</td></tr>
+      <tr><td><code>archived</code></td><td>Soft-deleted; can be restored</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Pausing &amp; Resuming</h2>
+  <pre><code><span class="keyword">await</span> nimbus.<span class="func">workflows.pause</span>(wf.id);
+<span class="keyword">await</span> nimbus.<span class="func">workflows.resume</span>(wf.id);</code></pre>
+
+  <div class="callout">
+    <strong>Note:</strong> Pausing a workflow does not cancel steps already in progress. They will complete before the workflow halts.
+  </div>
+
+</div>
+
+<footer>© 2026 Nimbus, Inc. — All rights reserved.</footer>
+
+</body>
+</html>
