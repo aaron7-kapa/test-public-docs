@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,11 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -39,7 +44,9 @@
       color: #fff;
     }
 
-    .logo svg { flex-shrink: 0; }
+    .logo svg {
+      flex-shrink: 0;
+    }
 
     .logo span.badge {
       font-size: 11px;
@@ -59,7 +66,10 @@
       margin-left: 28px;
       transition: color 0.2s;
     }
-    header nav a:hover { color: #fff; }
+
+    header nav a:hover {
+      color: #fff;
+    }
 
     .container {
       max-width: 720px;
@@ -90,7 +100,10 @@
       border-bottom: 1px solid #1e2533;
     }
 
-    p { margin-bottom: 16px; font-size: 15px; }
+    p {
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
 
     code {
       font-family: 'JetBrains Mono', monospace;
@@ -118,13 +131,25 @@
       color: #c9d1d9;
     }
 
-    .keyword { color: #c084fc; }
-    .string { color: #34d399; }
-    .comment { color: #4b5568; font-style: italic; }
-    .func { color: #60a5fa; }
+    .keyword {
+      color: #c084fc;
+    }
+
+    .string {
+      color: #34d399;
+    }
+
+    .comment {
+      color: #4b5568;
+      font-style: italic;
+    }
+
+    .func {
+      color: #60a5fa;
+    }
 
     .callout {
-      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(167,139,250,0.06));
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(167, 139, 250, 0.06));
       border-left: 3px solid #6366f1;
       border-radius: 0 8px 8px 0;
       padding: 16px 20px;
@@ -132,7 +157,9 @@
       font-size: 14px;
     }
 
-    .callout strong { color: #a78bfa; }
+    .callout strong {
+      color: #a78bfa;
+    }
 
     table {
       width: 100%;
@@ -157,7 +184,9 @@
       border-bottom: 1px solid #141a2a;
     }
 
-    td code { font-size: 12px; }
+    td code {
+      font-size: 12px;
+    }
 
     footer {
       text-align: center;
@@ -168,50 +197,58 @@
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" fill="url(#g1)"/>
-      <path d="M7 13c1-3 3-5 5-5s4 2 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="12" cy="9" r="2" fill="#fff" opacity="0.6"/>
-      <defs><linearGradient id="g1" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
-    </svg>
-    Nimbus <span class="badge">Docs</span>
-  </div>
-  <nav>
-    <a href="workflows.html">Workflows</a>
-    <a href="api-reference.html">API</a>
-    <a href="changelog.html">Changelog</a>
-  </nav>
-</header>
+  <header>
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" fill="url(#g1)" />
+        <path d="M7 13c1-3 3-5 5-5s4 2 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+        <circle cx="12" cy="9" r="2" fill="#fff" opacity="0.6" />
+        <defs>
+          <linearGradient id="g1" x1="2" y1="2" x2="22" y2="22">
+            <stop stop-color="#6366f1" />
+            <stop offset="1" stop-color="#a78bfa" />
+          </linearGradient>
+        </defs>
+      </svg>
+      Nimbus <span class="badge">Docs</span>
+    </div>
+    <nav>
+      <a href="workflows.html">Workflows</a>
+      <a href="api-reference.html">API</a>
+      <a href="changelog.html">Changelog</a>
+    </nav>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <h1>Getting Started</h1>
-  <p class="subtitle">Everything you need to ship your first Nimbus workflow in under 5 minutes. Changed.</p>
+    <h1>Getting Started</h1>
+    <p class="subtitle">Everything you need to ship your first Nimbus workflow in under 5 minutes. Changed.test1</p>
 
-  <h2>Installation</h2>
-  <p>Install the Nimbus SDK via npm:</p>
-  <pre><code><span class="comment">// Install the SDK</span>
+    <h2>Installation</h2>
+    <p>Install the Nimbus SDK via npm:</p>
+    <pre><code><span class="comment">// Install the SDK</span>
 npm install @nimbus/sdk</code></pre>
 
-  <h2>Authentication</h2>
-  <p>Grab your API key from the <strong style="color:#fff">Dashboard → Settings → API Keys</strong> page, then initialize the client:</p>
-  <pre><code><span class="keyword">import</span> { Nimbus } <span class="keyword">from</span> <span class="string">'@nimbus/sdk'</span>;
+    <h2>Authentication</h2>
+    <p>Grab your API key from the <strong style="color:#fff">Dashboard → Settings → API Keys</strong> page, then
+      initialize the client:</p>
+    <pre><code><span class="keyword">import</span> { Nimbus } <span class="keyword">from</span> <span class="string">'@nimbus/sdk'</span>;
 
 <span class="keyword">const</span> nimbus = <span class="keyword">new</span> <span class="func">Nimbus</span>({
   apiKey: process.env.<span class="string">NIMBUS_API_KEY</span>,
 });</code></pre>
 
-  <div class="callout">
-    <strong>Tip:</strong> Never hard-code your API key. Use environment variables or a secrets manager.
-  </div>
+    <div class="callout">
+      <strong>Tip:</strong> Never hard-code your API key. Use environment variables or a secrets manager.
+    </div>
 
-  <h2>Create a Workflow</h2>
-  <p>Workflows are the core primitive in Nimbus. Each workflow is a directed graph of <code>steps</code> that execute in order.</p>
-  <pre><code><span class="keyword">const</span> wf = <span class="keyword">await</span> nimbus.<span class="func">workflows.create</span>({
+    <h2>Create a Workflow</h2>
+    <p>Workflows are the core primitive in Nimbus. Each workflow is a directed graph of <code>steps</code> that execute
+      in order.</p>
+    <pre><code><span class="keyword">const</span> wf = <span class="keyword">await</span> nimbus.<span class="func">workflows.create</span>({
   name: <span class="string">'Welcome Email'</span>,
   trigger: <span class="string">'user.signup'</span>,
   steps: [
@@ -223,35 +260,53 @@ npm install @nimbus/sdk</code></pre>
 
 console.<span class="func">log</span>(wf.id); <span class="comment">// wf_k8x3…</span></code></pre>
 
-  <h2>Rate Limits</h2>
-  <p>Limits vary by plan:</p>
-  <table>
-    <thead>
-      <tr><th>Plan</th><th>Requests / min</th><th>Workflows</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Free</td><td><code>60</code></td><td>5</td></tr>
-      <tr><td>Pro</td><td><code>600</code></td><td>Unlimited</td></tr>
-      <tr><td>Enterprise</td><td><code>Custom</code></td><td>Unlimited</td></tr>
-    </tbody>
-  </table>
+    <h2>Rate Limits</h2>
+    <p>Limits vary by plan:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Requests / min</th>
+          <th>Workflows</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Free</td>
+          <td><code>60</code></td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td><code>600</code></td>
+          <td>Unlimited</td>
+        </tr>
+        <tr>
+          <td>Enterprise</td>
+          <td><code>Custom</code></td>
+          <td>Unlimited</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h2>Explore the Docs</h2>
-  <p>Dive deeper into the platform:</p>
-  <ul style="margin: 8px 0 16px 24px; font-size: 15px;">
-    <li><a href="workflows.html" style="color: #a78bfa;">Workflows</a> — Build automation pipelines with steps</li>
-    <li><a href="api-reference.html" style="color: #a78bfa;">API Reference</a> — REST endpoints and error codes</li>
-    <li><a href="triggers.html" style="color: #a78bfa;">Triggers</a> — Events that kick off workflows</li>
-    <li><a href="templates.html" style="color: #a78bfa;">Templates</a> — Reusable email and message templates</li>
-    <li><a href="changelog.html" style="color: #a78bfa;">Changelog</a> — What's new in Nimbus</li>
-  </ul>
+    <h2>Explore the Docs</h2>
+    <p>Dive deeper into the platform:</p>
+    <ul style="margin: 8px 0 16px 24px; font-size: 15px;">
+      <li><a href="workflows.html" style="color: #a78bfa;">Workflows</a> — Build automation pipelines with steps</li>
+      <li><a href="api-reference.html" style="color: #a78bfa;">API Reference</a> — REST endpoints and error codes</li>
+      <li><a href="triggers.html" style="color: #a78bfa;">Triggers</a> — Events that kick off workflows</li>
+      <li><a href="templates.html" style="color: #a78bfa;">Templates</a> — Reusable email and message templates</li>
+      <li><a href="changelog.html" style="color: #a78bfa;">Changelog</a> — What's new in Nimbus</li>
+    </ul>
 
-  <h2>Need Help?</h2>
-  <p>Join the community on Discord or email <code>support@nimbus.dev</code>. We typically respond within a few hours.</p>
+    <h2>Need Help?</h2>
+    <p>Join the community on Discord or email <code>support@nimbus.dev</code>. We typically respond within a few hours.
+    </p>
 
-</div>
+  </div>
 
-<footer>© 2026 Nimbus, Inc. — All rights reserved.</footer>
+  <footer>© 2026 Nimbus, Inc. — All rights reserved.</footer>
 
 </body>
+
 </html>

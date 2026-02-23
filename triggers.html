@@ -1,84 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Triggers – Nimbus Docs</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #0b0f1a; color: #c9d1d9; line-height: 1.7; min-height: 100vh; }
-    header { border-bottom: 1px solid #1e2533; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(12px); position: sticky; top: 0; background: rgba(11, 15, 26, 0.85); z-index: 10; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: #fff; text-decoration: none; }
-    .logo svg { flex-shrink: 0; }
-    .logo span.badge { font-size: 11px; font-weight: 500; background: linear-gradient(135deg, #6366f1, #a78bfa); color: #fff; padding: 2px 8px; border-radius: 999px; margin-left: 4px; }
-    header nav a { color: #8b95a5; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 28px; transition: color 0.2s; }
-    header nav a:hover { color: #fff; }
-    .container { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
-    h1 { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .subtitle { font-size: 15px; color: #6b7589; margin-bottom: 48px; }
-    h2 { font-size: 20px; font-weight: 600; color: #e2e8f0; margin-top: 40px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #1e2533; }
-    p { margin-bottom: 16px; font-size: 15px; }
-    code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #161b2e; padding: 2px 6px; border-radius: 4px; color: #a78bfa; }
-    pre { background: #111827; border: 1px solid #1e2533; border-radius: 10px; padding: 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 13px; line-height: 1.65; }
-    pre code { background: none; padding: 0; color: #c9d1d9; }
-    .keyword { color: #c084fc; }
-    .string { color: #34d399; }
-    .comment { color: #4b5568; font-style: italic; }
-    .func { color: #60a5fa; }
-    .callout { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(167,139,250,0.06)); border-left: 3px solid #6366f1; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0; font-size: 14px; }
-    .callout strong { color: #a78bfa; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
-    th { text-align: left; color: #8b95a5; font-weight: 500; padding: 10px 12px; border-bottom: 1px solid #1e2533; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-    td { padding: 10px 12px; border-bottom: 1px solid #141a2a; }
-    td code { font-size: 12px; }
-    footer { text-align: center; padding: 32px; font-size: 13px; color: #3d4555; border-top: 1px solid #1e2533; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0f1a;
+      color: #c9d1d9;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid #1e2533;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 26, 0.85);
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo svg {
+      flex-shrink: 0;
+    }
+
+    .logo span.badge {
+      font-size: 11px;
+      font-weight: 500;
+      background: linear-gradient(135deg, #6366f1, #a78bfa);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 4px;
+    }
+
+    header nav a {
+      color: #8b95a5;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    header nav a:hover {
+      color: #fff;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #6b7589;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1e2533;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      background: #161b2e;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #a78bfa;
+    }
+
+    pre {
+      background: #111827;
+      border: 1px solid #1e2533;
+      border-radius: 10px;
+      padding: 20px;
+      overflow-x: auto;
+      margin: 16px 0 24px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      color: #c9d1d9;
+    }
+
+    .keyword {
+      color: #c084fc;
+    }
+
+    .string {
+      color: #34d399;
+    }
+
+    .comment {
+      color: #4b5568;
+      font-style: italic;
+    }
+
+    .func {
+      color: #60a5fa;
+    }
+
+    .callout {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(167, 139, 250, 0.06));
+      border-left: 3px solid #6366f1;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .callout strong {
+      color: #a78bfa;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      color: #8b95a5;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-bottom: 1px solid #1e2533;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #141a2a;
+    }
+
+    td code {
+      font-size: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: 13px;
+      color: #3d4555;
+      border-top: 1px solid #1e2533;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <a href="index.html" class="logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" fill="url(#g1)"/>
-      <path d="M7 13c1-3 3-5 5-5s4 2 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="12" cy="9" r="2" fill="#fff" opacity="0.6"/>
-      <defs><linearGradient id="g1" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
-    </svg>
-    Nimbus <span class="badge">Docs</span>
-  </a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="workflows.html">Workflows</a>
-    <a href="api-reference.html">API</a>
-  </nav>
-</header>
+  <header>
+    <a href="index.html" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" fill="url(#g1)" />
+        <path d="M7 13c1-3 3-5 5-5s4 2 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" />
+        <circle cx="12" cy="9" r="2" fill="#fff" opacity="0.6" />
+        <defs>
+          <linearGradient id="g1" x1="2" y1="2" x2="22" y2="22">
+            <stop stop-color="#6366f1" />
+            <stop offset="1" stop-color="#a78bfa" />
+          </linearGradient>
+        </defs>
+      </svg>
+      Nimbus <span class="badge">Docs</span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="api-reference.html">API</a>
+    </nav>
+  </header>
 
-<div class="container">
+  <div class="container">
 
-  <h1>Triggers</h1>
-  <p class="subtitle">Events that kick off your workflows.</p>
+    <h1>Triggers</h1>
+    <p class="subtitle">Events that kick off your workflows.</p>
 
-  <h2>How Triggers Work</h2>
-  <p>Every workflow starts with a trigger — an event that tells Nimbus to begin executing steps. Triggers can come from your application, a schedule, or a webhook.</p>
+    <h2>How Triggers Work</h2>
+    <p>Every workflow starts with a trigger — an event that tells Nimbus to begin executing steps. Triggers can come
+      from your application, a schedule, or a webhook.</p>
 
-  <h2>Built-in Events</h2>
-  <table>
-    <thead>
-      <tr><th>Event</th><th>Fires When</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><code>user.signup</code></td><td>A new user registers</td></tr>
-      <tr><td><code>user.login</code></td><td>A user logs in</td></tr>
-      <tr><td><code>order.created</code></td><td>A new order is placed</td></tr>
-      <tr><td><code>order.completed</code></td><td>An order is fulfilled</td></tr>
-      <tr><td><code>payment.failed</code></td><td>A payment attempt fails</td></tr>
-    </tbody>
-  </table>
+    <h2>Built-in Events</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Fires When</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>user.signup</code></td>
+          <td>A new user registerstest1</td>
+        </tr>
+        <tr>
+          <td><code>user.login</code></td>
+          <td>A user logs in</td>
+        </tr>
+        <tr>
+          <td><code>order.created</code></td>
+          <td>A new order is placed</td>
+        </tr>
+        <tr>
+          <td><code>order.completed</code></td>
+          <td>An order is fulfilled</td>
+        </tr>
+        <tr>
+          <td><code>payment.failed</code></td>
+          <td>A payment attempt fails</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h2>Custom Events</h2>
-  <p>Send any custom event from your application using the SDK or REST API:</p>
-  <pre><code><span class="keyword">await</span> nimbus.<span class="func">events.send</span>({
+    <h2>Custom Events</h2>
+    <p>Send any custom event from your application using the SDK or REST API:</p>
+    <pre><code><span class="keyword">await</span> nimbus.<span class="func">events.send</span>({
   name: <span class="string">'subscription.cancelled'</span>,
   payload: {
     userId: <span class="string">'usr_abc123'</span>,
@@ -87,9 +275,9 @@
   },
 });</code></pre>
 
-  <h2>Scheduled Triggers</h2>
-  <p>Use cron expressions to trigger workflows on a schedule:</p>
-  <pre><code><span class="keyword">const</span> wf = <span class="keyword">await</span> nimbus.<span class="func">workflows.create</span>({
+    <h2>Scheduled Triggers</h2>
+    <p>Use cron expressions to trigger workflows on a schedule:</p>
+    <pre><code><span class="keyword">const</span> wf = <span class="keyword">await</span> nimbus.<span class="func">workflows.create</span>({
   name: <span class="string">'Weekly Digest'</span>,
   trigger: { type: <span class="string">'schedule'</span>, cron: <span class="string">'0 9 * * MON'</span> },
   steps: [
@@ -97,13 +285,15 @@
   ],
 });</code></pre>
 
-  <div class="callout">
-    <strong>Tip:</strong> Use <code>nimbus.events.list()</code> to see all events that have been sent to your account in the last 30 days.
+    <div class="callout">
+      <strong>Tip:</strong> Use <code>nimbus.events.list()</code> to see all events that have been sent to your account
+      in the last 30 days.
+    </div>
+
   </div>
 
-</div>
-
-<footer>© 2026 Nimbus, Inc. — All rights reserved.</footer>
+  <footer>© 2026 Nimbus, Inc. — All rights reserved.</footer>
 
 </body>
+
 </html>
